@@ -66,3 +66,7 @@ Lo conectas desde `Project Settings > Domains` en Vercel y luego apuntas el DNS 
 Los cambios en Google Sheets se reflejan en la app al recargar o usar el boton `Actualizar lotes`.
 
 Si cambias codigo del Apps Script, debes volver a desplegar esa aplicacion web.
+
+
+
+
