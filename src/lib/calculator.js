@@ -1,9 +1,10 @@
-﻿export function calculateMonthlyPayment(principal, annualRate, months) {
+export function calculateMonthlyPayment(principal, annualRate, months) {
   if (!principal || !months) {
     return 0;
   }
 
-  const monthlyRate = annualRate / 100 / 12;
+  const annualRateDecimal = annualRate / 100;
+  const monthlyRate = Math.pow(1 + annualRateDecimal, 30 / 360) - 1;
 
   if (monthlyRate === 0) {
     return principal / months;
@@ -27,6 +28,7 @@ export function calculateQuote(selectedLot, form) {
     Number(form.annualRate || 0),
     Number(form.termMonths || 0),
   );
+  const monthlyRate = Math.pow(1 + Number(form.annualRate || 0) / 100, 30 / 360) - 1;
 
   return {
     basePrice,
@@ -35,6 +37,6 @@ export function calculateQuote(selectedLot, form) {
     initialAmount,
     financedAmount,
     monthlyPayment,
-    monthlyRate: Number(form.annualRate || 0) / 12,
+    monthlyRate,
   };
 }
