@@ -67,6 +67,15 @@ Los cambios en Google Sheets se reflejan en la app al recargar o usar el boton `
 
 Si cambias codigo del Apps Script, debes volver a desplegar esa aplicacion web.
 
+## 8. Documentacion de entrega
+
+Se agrego una carpeta con entregables para cierre y traspaso:
+
+- [Acta de entrega interna](/g:/Mi%20unidad/Proyectos%20Mala%20Gardens%20-%20Sistemas/MGCalc/docs/entrega/01-acta-entrega-interna.md)
+- [Documento de alcance](/g:/Mi%20unidad/Proyectos%20Mala%20Gardens%20-%20Sistemas/MGCalc/docs/entrega/02-documento-alcance.md)
+- [Manual de usuario](/g:/Mi%20unidad/Proyectos%20Mala%20Gardens%20-%20Sistemas/MGCalc/docs/entrega/03-manual-usuario.md)
+- [Manual tecnico](/g:/Mi%20unidad/Proyectos%20Mala%20Gardens%20-%20Sistemas/MGCalc/docs/entrega/04-manual-tecnico.md)
+- [Accesos y entrega tecnica](/g:/Mi%20unidad/Proyectos%20Mala%20Gardens%20-%20Sistemas/MGCalc/docs/entrega/05-accesos-entrega-tecnica.md)
 
 
 

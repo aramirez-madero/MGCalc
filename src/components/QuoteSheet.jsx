@@ -66,7 +66,7 @@ export function QuoteSheet({
           <strong>Cliente:</strong> {buyerName || "No especificado"}
         </p>
         <p>
-          <strong>N° Documento:</strong> {buyerDni || "No especificado"}
+          <strong>N.° Documento:</strong> {buyerDni || "No especificado"}
         </p>
         <p>
           <strong>Asesor:</strong> {advisorName || "No especificado"}
@@ -78,13 +78,13 @@ export function QuoteSheet({
         <div className="quote-grid">
           <QuoteBlock
             label="Lote"
-            value={selectedLot ? `Manzana ${selectedLot.manzana} - Lote ${selectedLot.numLote}` : "Sin seleccion"}
+            value={selectedLot ? `Manzana ${selectedLot.manzana} - Lote ${selectedLot.numLote}` : "Sin selección"}
             className="quote-pos-lote"
           />
-          <QuoteBlock label="Codigo" value={selectedLot ? selectedLot.id : "-"} className="quote-pos-codigo" />
-          <QuoteBlock label="Estado" value={selectedLot ? selectedLot.estado : "Sin seleccion"} className="quote-pos-estado" />
+          <QuoteBlock label="Código" value={selectedLot ? selectedLot.id : "-"} className="quote-pos-codigo" />
+          <QuoteBlock label="Estado" value={selectedLot ? selectedLot.estado : "Sin selección"} className="quote-pos-estado" />
           <QuoteBlock label="Precio por m²" value={selectedLot ? formatCurrency(selectedLot.precioM2) : formatCurrency(0)} className="quote-pos-precio-m2" />
-          <QuoteBlock label="Area" value={selectedLot ? `${formatNumber(selectedLot.area)} m²` : "-"} className="quote-pos-area" />
+          <QuoteBlock label="Área" value={selectedLot ? `${formatNumber(selectedLot.area)} m²` : "-"} className="quote-pos-area" />
         </div>
       </div>
 
@@ -112,8 +112,8 @@ export function QuoteSheet({
       </div>
 
       <div className="quote-notes">
-        <p>La presente proforma es referencial y esta sujeta a disponibilidad del lote al momento de la separacion.</p>
-        <p>Los valores y condiciones comerciales pueden variar segun politicas vigentes de la empresa.</p>
+        <p>La presente proforma es referencial y está sujeta a disponibilidad del lote al momento de la separación.</p>
+        <p>Los valores y condiciones comerciales pueden variar según políticas vigentes de la empresa.</p>
       </div>
     </section>
   );

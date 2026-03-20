@@ -130,7 +130,7 @@ function App() {
 
               <div className="form-grid">
                 <label className="field">
-                  <span>N° Documento</span>
+                  <span>N.° Documento</span>
                   <div className={`input-icon${isSoldLot ? " input-icon-disabled" : ""}`}>
                     <FaIdCard />
                     <input
@@ -186,7 +186,7 @@ function App() {
                 </label>
 
                 <label className="field">
-                  <span>Numero de lote</span>
+                  <span>Número de lote</span>
                   <div className={`custom-select${!form.manzana ? " custom-select-disabled" : ""}`}>
                     <button
                       className="custom-select-trigger"
@@ -247,10 +247,10 @@ function App() {
                 <span>
                   Estado actual:{" "}
                   <strong className={isAvailableLot ? "status-badge status-available" : isSoldLot ? "status-badge status-sold" : ""}>
-                    {selectedLot ? selectedLot.estado : "Sin seleccion"}
+                    {selectedLot ? selectedLot.estado : "Sin selección"}
                   </strong>
                 </span>
-                <span>{loading ? "Actualizando..." : `Ultima sincronizacion: ${lastSync || "-"}`}</span>
+                <span>{loading ? "Actualizando..." : `Última sincronización: ${lastSync || "-"}`}</span>
               </div>
               {error ? <p className="error-text">{error}</p> : null}
             </article>
@@ -262,7 +262,7 @@ function App() {
 
               {isSoldLot ? (
                 <div className="lot-alert lot-alert-sold">
-                  Lote vendido. No se puede cotizar ni editar informacion comercial.
+                  Lote vendido. No se puede cotizar ni editar información comercial.
                 </div>
               ) : (
                 <div className="featured-metric">
@@ -296,14 +296,14 @@ function App() {
               <div className="results-actions">
                 <button className="accent-button results-button" type="button" onClick={generatePdf} disabled={!selectedLot || !results || isSoldLot}>
                   <FaFilePdf />
-                  Generar cotizacion
+                  Generar cotización
                 </button>
               </div>
             </article>
 
             <article className="panel panel-wide">
               <div className="panel-header">
-                <h2>Simulacion de financiamiento</h2>
+                <h2>Simulación de financiamiento</h2>
                 <div className="finance-header-actions">
                   <button
                     className={`toggle-button${financeEditEnabled ? " toggle-button-active" : ""}`}
@@ -311,7 +311,7 @@ function App() {
                     onClick={() => setFinanceEditEnabled((current) => !current)}
                     disabled={isSoldLot}
                   >
-                    {financeEditEnabled ? "Bloquear edicion" : "Activar edicion"}
+                    {financeEditEnabled ? "Bloquear edición" : "Activar edición"}
                   </button>
                   <FaCalculator className="panel-icon" />
                 </div>
