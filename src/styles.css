@@ -192,7 +192,7 @@ button, input, select { font: inherit; }
   border-color: rgba(15, 87, 65, 0.12);
   box-shadow: none;
 }
-.results-actions { margin-top: 14px; padding-top: 0; }
+.results-actions { display: grid; gap: 12px; margin-top: 14px; padding-top: 0; }
 .results-button { width: 100%; }
 .monthly-highlight { background: linear-gradient(160deg, rgba(180, 140, 67, 0.16), rgba(15, 87, 65, 0.08)); }
 .finance-summary-grid .monthly-highlight { border-color: rgba(180, 140, 67, 0.24); }

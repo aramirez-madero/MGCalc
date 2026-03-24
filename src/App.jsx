@@ -47,6 +47,22 @@ function App() {
     return Math.min(100, Math.max(0, parsed));
   }
 
+  function sanitizeTermValue(rawValue) {
+    const digitsOnly = String(rawValue).replace(/\D/g, "");
+
+    if (!digitsOnly) {
+      return "";
+    }
+
+    const parsed = Number(digitsOnly);
+
+    if (!Number.isFinite(parsed)) {
+      return "";
+    }
+
+    return Math.max(1, parsed);
+  }
+
   function updateField(name, value) {
     setForm((current) => ({
       ...current,
@@ -100,6 +116,10 @@ function App() {
       })
       .from(quoteRef.current)
       .save();
+  }
+
+  function openGeneralPlan() {
+    window.open("/planos/mg-plano-general.pdf", "_blank", "noopener,noreferrer");
   }
 
   return (
@@ -298,6 +318,10 @@ function App() {
                   <FaFilePdf />
                   Generar cotización
                 </button>
+                <button className="ghost-button results-button" type="button" onClick={openGeneralPlan}>
+                  <FaFilePdf />
+                  Ver plano
+                </button>
               </div>
             </article>
 
@@ -341,8 +365,15 @@ function App() {
                 </label>
 
                 <label className="field">
-                  <span>Plazo</span>
-                  <input type="text" value={`${FIXED_TERM_MONTHS} meses`} readOnly />
+                  <span>Plazo (meses)</span>
+                  <input
+                    type="text"
+                    inputMode="numeric"
+                    value={form.termMonths}
+                    onChange={(event) => updateField("termMonths", sanitizeTermValue(event.target.value))}
+                    placeholder={String(FIXED_TERM_MONTHS)}
+                    disabled={isSoldLot || !financeEditEnabled}
+                  />
                 </label>
               </div>
 
@@ -380,6 +411,7 @@ function App() {
           annualRate={form.annualRate}
           discountPercent={form.discountPercent}
           initialPercent={form.initialPercent}
+          termMonths={form.termMonths}
         />
       </main>
     </div>

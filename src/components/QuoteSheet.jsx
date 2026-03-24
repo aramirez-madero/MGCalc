@@ -30,6 +30,7 @@ export function QuoteSheet({
   annualRate,
   discountPercent,
   initialPercent,
+  termMonths,
 }) {
   const issueDate = new Date().toLocaleDateString("es-PE");
   const validUntil = new Date(Date.now() + 7 * 24 * 60 * 60 * 1000).toLocaleDateString("es-PE");
@@ -107,7 +108,7 @@ export function QuoteSheet({
           <QuoteBlock label="Inicial" value={results ? formatCurrency(results.initialAmount) : formatCurrency(0)} className="quote-finance-initial-amount" />
           <QuoteBlock label="Saldo financiado" value={results ? formatCurrency(results.financedAmount) : formatCurrency(0)} className="quote-finance-balance" />
           <QuoteBlock label="Cuota mensual estimada" value={results ? formatCurrency(results.monthlyPayment) : formatCurrency(0)} className="quote-finance-payment" />
-          <QuoteBlock label="Plazo" value="180 meses" className="quote-finance-term" />
+          <QuoteBlock label="Plazo" value={`${termMonths || 0} meses`} className="quote-finance-term" />
         </div>
       </div>
 
