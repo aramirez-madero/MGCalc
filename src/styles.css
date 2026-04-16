@@ -50,6 +50,95 @@ button, input, select { font: inherit; }
 .finance-summary-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; margin-top: 14px; }
 .field { display: flex; flex-direction: column; gap: 8px; }
 .field-wide { grid-column: 1 / -1; }
+.lot-dimensions-card {
+  padding: 10px 8px;
+  border-radius: 18px;
+  border: 1px solid rgba(15, 87, 65, 0.12);
+  background: rgba(241, 237, 229, 0.72);
+}
+.lot-dimensions-toggle {
+  width: 100%;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 12px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: inherit;
+  box-shadow: none;
+  cursor: pointer;
+  text-align: left;
+}
+.lot-dimensions-toggle:disabled {
+  cursor: default;
+}
+.lot-dimensions-toggle-open .lot-dimensions-icon {
+  transform: rotate(180deg);
+}
+.lot-dimensions-icon {
+  flex: 0 0 auto;
+  color: var(--mg-green-dark);
+  transition: transform 180ms ease;
+}
+.lot-dimensions-header {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  column-gap: 12px;
+  margin-bottom: 0;
+}
+.lot-dimensions-copy {
+  min-width: 0;
+}
+.lot-dimensions-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 4px;
+  flex-wrap: wrap;
+}
+.lot-dimensions-header h3 {
+  margin: 0;
+  font-size: 0.98rem;
+  color: var(--mg-green-dark);
+}
+.lot-dimensions-header span {
+  font-size: 0.82rem;
+  color: #6c7b74;
+  text-align: left;
+}
+.lot-dimensions-header strong {
+  align-self: center;
+  font-size: 0.84rem;
+  color: var(--mg-green-dark);
+}
+.lot-dimensions-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 12px;
+}
+.lot-dimension-item {
+  padding: 14px;
+  border-radius: 14px;
+  border: 1px solid rgba(15, 87, 65, 0.12);
+  background: rgba(241, 237, 229, 0.95);
+  box-shadow: none;
+  cursor: default;
+}
+.lot-dimension-item span {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #7a8a82;
+}
+.lot-dimension-item strong {
+  font-size: 1.1rem;
+  color: #556a61;
+}
 .field span { font-size: 0.92rem; font-weight: 600; color: #506057; }
 .field input, .field select {
   min-height: 52px;
@@ -303,6 +392,10 @@ button, input, select { font: inherit; }
 .quote-pos-estado { grid-column: 4; grid-row: 1; }
 .quote-pos-area { grid-column: 1 / 3; grid-row: 2; }
 .quote-pos-precio-m2 { grid-column: 3 / 5; grid-row: 2; }
+.quote-pos-frente { grid-column: 1; grid-row: 3; }
+.quote-pos-fondo { grid-column: 2; grid-row: 3; }
+.quote-pos-derecha { grid-column: 3; grid-row: 3; }
+.quote-pos-izquierda { grid-column: 4; grid-row: 3; }
 .quote-block-wide { grid-column: 1 / -1; }
 .quote-block-featured {
   grid-column: 1 / -1;
@@ -336,11 +429,18 @@ button, input, select { font: inherit; }
   .quote-doc-meta { grid-template-columns: 1fr; width: 100%; }
   .hero-actions { width: 100%; justify-content: stretch; }
   .hero-actions button { flex: 1 1 220px; }
+  .lot-dimensions-toggle { grid-template-columns: 1fr auto; }
+  .lot-dimensions-header { grid-template-columns: 1fr; row-gap: 6px; align-items: start; }
+  .lot-dimensions-grid { grid-template-columns: 1fr; }
   .quote-pos-lote,
   .quote-pos-codigo,
   .quote-pos-precio-m2,
   .quote-pos-area,
   .quote-pos-estado,
+  .quote-pos-frente,
+  .quote-pos-fondo,
+  .quote-pos-derecha,
+  .quote-pos-izquierda,
   .quote-commercial-base,
   .quote-commercial-discount-rate,
   .quote-commercial-discount-amount,

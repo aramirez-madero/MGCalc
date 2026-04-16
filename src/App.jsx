@@ -1,5 +1,5 @@
 import { useMemo, useRef, useState } from "react";
-import { FaCalculator, FaFilePdf, FaIdCard, FaSyncAlt, FaUser, FaUserTie } from "react-icons/fa";
+import { FaCalculator, FaChevronDown, FaFilePdf, FaIdCard, FaSyncAlt, FaUser, FaUserTie } from "react-icons/fa";
 import logoUrl from "../logo-MG.png";
 import { QuoteSheet } from "./components/QuoteSheet";
 import { APP_TITLE, DEFAULT_FORM, FIXED_TERM_MONTHS } from "./config/appConfig";
@@ -10,6 +10,7 @@ import { formatCurrency, formatNumber, formatPercent, formatRatePercent } from "
 function App() {
   const [form, setForm] = useState(DEFAULT_FORM);
   const [lotMenuOpen, setLotMenuOpen] = useState(false);
+  const [dimensionsOpen, setDimensionsOpen] = useState(false);
   const [financeEditEnabled, setFinanceEditEnabled] = useState(false);
   const [quoteDocumentNumber, setQuoteDocumentNumber] = useState("PF-000");
   const quoteRef = useRef(null);
@@ -71,6 +72,9 @@ function App() {
     }));
     if (name === "manzana" || name === "lotId") {
       setLotMenuOpen(false);
+    }
+    if (name === "manzana") {
+      setDimensionsOpen(false);
     }
   }
 
@@ -250,6 +254,47 @@ function App() {
                   <span>Precio (USD/m²)</span>
                   <input type="text" value={selectedLot ? formatCurrency(selectedLot.precioM2) : ""} placeholder="Precio por m²" readOnly />
                 </label>
+
+                <div className="lot-dimensions-card field-wide">
+                  <button
+                    className={`lot-dimensions-toggle${dimensionsOpen ? " lot-dimensions-toggle-open" : ""}`}
+                    type="button"
+                    onClick={() => setDimensionsOpen((current) => !current)}
+                    disabled={!selectedLot}
+                  >
+                    <div className="lot-dimensions-header">
+                      <div className="lot-dimensions-copy">
+                        <h3>Dimensiones del lote</h3>
+                        <div className="lot-dimensions-meta">
+                          <span>{selectedLot ? "Metraje por lado" : "Selecciona un lote para ver el detalle"}</span>
+                        </div>
+                      </div>
+                      <strong>{selectedLot ? (dimensionsOpen ? "Ocultar detalle" : "Ver detalle") : "Sin lote"}</strong>
+                    </div>
+                    <FaChevronDown className="lot-dimensions-icon" />
+                  </button>
+
+                  {dimensionsOpen && selectedLot ? (
+                    <div className="lot-dimensions-grid">
+                      <div className="lot-dimension-item">
+                        <span>Frente</span>
+                        <strong>{`${formatNumber(selectedLot.frente)} m`}</strong>
+                      </div>
+                      <div className="lot-dimension-item">
+                        <span>Fondo</span>
+                        <strong>{`${formatNumber(selectedLot.fondo)} m`}</strong>
+                      </div>
+                      <div className="lot-dimension-item">
+                        <span>Derecha</span>
+                        <strong>{`${formatNumber(selectedLot.derecha)} m`}</strong>
+                      </div>
+                      <div className="lot-dimension-item">
+                        <span>Izquierda</span>
+                        <strong>{`${formatNumber(selectedLot.izquierda)} m`}</strong>
+                      </div>
+                    </div>
+                  ) : null}
+                </div>
 
                 <label className="field">
                   <span>Descuento (%)</span>

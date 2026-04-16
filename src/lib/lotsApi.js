@@ -8,6 +8,10 @@ function normalizeLot(row) {
     numLote: String(row.NUM_LOTE ?? row.numLote ?? row.lote ?? "").trim(),
     area: Number(row.AREA ?? row.area ?? 0),
     precioM2: Number(row.PRECIO_M2 ?? row.precioM2 ?? 0),
+    frente: Number(row.FRENTE ?? row.frente ?? 0),
+    fondo: Number(row.FONDO ?? row.fondo ?? 0),
+    derecha: Number(row.DERECHA ?? row.derecha ?? 0),
+    izquierda: Number(row.IZQUIERDA ?? row.izquierda ?? 0),
   };
 }
 
